@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<style>
+@font-face{font-family:'Major Mono Display';src:url('fonts/MajorMonoDisplay-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;color:#1A1A18;font-family:'Montserrat',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#EE7F7B;color:#fff}
+:focus-visible{outline:2px solid #EE7F7B;outline-offset:3px;border-radius:6px}
+@keyframes tpBlink{0%,48%{opacity:1}50%,100%{opacity:0}}
+@keyframes tpFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes tpFloatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes tpProg{0%{width:4%}92%{width:97%}100%{width:97%}}
+@keyframes tpGlow{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+media-slot{display:block}
+</style>
+<script src="./media-slot.js"></script>
+</helmet>
+
+<div style="position:relative;width:100%;overflow:hidden">
+
+<!-- ========== NAV ========== -->
+<header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,.78);border-bottom:1px solid #EDEAE3">
+<nav style="max-width:1180px;margin:0 auto;padding:15px clamp(18px,5vw,40px);display:flex;align-items:center;gap:20px">
+<a href="#top" aria-label="typpo home" style="font-family:'Major Mono Display',monospace;font-size:23px;letter-spacing:.14em;color:#1A1A18;text-decoration:none;margin-right:auto">typpo</a>
+<a href="#how" style="color:#6E6D64;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.01em">how it works</a>
+<a href="#figma" style="color:#6E6D64;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.01em">figma plugin</a>
+<a href="#download" style="color:#6E6D64;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.01em">download</a>
+<a href="https://apps.apple.com/us/app/typpo/id1667857726" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;background:var(--tp-accent,#EE7F7B);color:#fff;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 8px 22px -8px rgba(238,127,123,.65)">get typpo</a>
+</nav>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="top" style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(18px,5vw,40px) clamp(40px,6vw,72px)">
+<div id="tp-hero-glow" aria-hidden="true" style="position:absolute;top:-8%;left:40%;width:min(760px,92vw);height:min(760px,92vw);transform:translateX(-30%);background:radial-gradient(circle,rgba(238,127,123,.85) 0%,rgba(238,127,123,.25) 34%,transparent 66%);opacity:.16;filter:blur(40px);animation:tpGlow 7s ease-in-out infinite;pointer-events:none;z-index:0"></div>
+
+<div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,68px);align-items:center">
+
+<!-- copy -->
+<div style="flex:1 1 380px;min-width:300px">
+<div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:99px;border:1px solid rgba(238,127,123,.45);background:rgba(238,127,123,.09);margin-bottom:24px">
+<span style="width:7px;height:7px;border-radius:99px;background:#FF0404;box-shadow:0 0 10px #FF0404"></span>
+<span style="font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#D65F5B">powered by your voice</span>
+</div>
+<h1 data-reveal="60" style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(38px,7.6vw,74px);line-height:1.02;letter-spacing:.01em;margin:0 0 22px;color:#1A1A18">create videos<br>as you <span style="color:var(--tp-accent,#EE7F7B)">speak.</span></h1>
+<p data-reveal="120" style="max-width:480px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:#56554E;font-weight:500;margin:0 0 32px">just talk. typpo's ai turns your words into an animated, word-by-word captioned video — synced to your voice, ready to post. no design skills. no typing.</p>
+<div data-reveal="180" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+<a href="https://apps.apple.com/us/app/typpo/id1667857726" aria-label="Download on the App Store" style="display:inline-flex;align-items:center;gap:11px;padding:0 18px;height:56px;border-radius:9px;background:#000;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.24);box-shadow:0 16px 34px -16px rgba(0,0,0,.55)">
+<svg width="24" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.9c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.1-2.02-3.77-2.05-1.6-.16-3.13.94-3.94.94-.82 0-2.06-.92-3.4-.9-1.74.03-3.36 1.02-4.26 2.58-1.82 3.16-.46 7.83 1.29 10.4.86 1.26 1.88 2.67 3.21 2.62 1.3-.05 1.79-.83 3.35-.83 1.55 0 2 .83 3.36.81 1.39-.03 2.27-1.28 3.11-2.55.98-1.46 1.39-2.88 1.41-2.95-.03-.01-2.7-1.04-2.73-4.11zM14.6 5.28c.71-.86 1.19-2.05 1.06-3.24-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.97-1.08 3.13 1.14.09 2.3-.58 3.01-1.43z"/></svg>
+<span style="display:flex;flex-direction:column;justify-content:center;line-height:1"><span style="font-size:11px;font-weight:400;letter-spacing:.01em;margin-bottom:3px">Download on the</span><span style="font-size:21px;font-weight:600;letter-spacing:-.01em;font-family:-apple-system,'Montserrat',sans-serif">App Store</span></span>
+</a>
+<a href="https://www.figma.com/community/plugin/1654183953415393934" style="display:inline-flex;align-items:center;gap:10px;padding:0 22px;border-radius:9px;height:56px;background:#fff;border:1px solid #E4E1DB;color:#1A1A18;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 8px 20px -14px rgba(28,24,20,.35)"
+<svg width="17" height="25" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+get the figma plugin</a>
+</div>
+<div data-reveal="240" style="display:flex;align-items:center;gap:10px;margin-top:26px;color:#8B8B80;font-size:13px;font-weight:600">
+<span style="color:#EE7F7B;letter-spacing:.1em">★★★★★</span> loved by creators on iphone · free to start
+</div>
+</div>
+
+<!-- phone -->
+<div data-reveal="120" style="flex:0 1 320px;min-width:250px;display:flex;justify-content:center">
+<div style="position:relative;width:clamp(240px,74vw,300px);aspect-ratio:9/16;border-radius:40px;padding:9px;background:linear-gradient(160deg,#2b2b30,#101012);box-shadow:0 44px 90px -30px rgba(28,24,20,.5),0 0 0 1px #E4E1DB,inset 0 0 0 1px rgba(255,255,255,.05);animation:tpFloat 7s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:radial-gradient(120% 80% at 30% 20%,#5a4632 0%,#33251a 40%,#161210 100%)">
+<!-- REPLACE: 9:16 demo video (talk → captioned typpo clip) -->
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(238,127,123,.14),transparent 45%),repeating-linear-gradient(115deg,rgba(255,255,255,.02) 0 12px,transparent 12px 26px)"></div>
+<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:99px;background:#000;z-index:4"></div>
+<div style="position:absolute;top:16px;left:16px;font-family:'Major Mono Display',monospace;font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.85);z-index:3">typpo</div>
+<div style="position:absolute;top:15px;right:16px;display:flex;align-items:center;gap:5px;z-index:3">
+<span style="width:7px;height:7px;border-radius:99px;background:#FF0404;box-shadow:0 0 8px #FF0404"></span>
+<span style="font-family:'Major Mono Display',monospace;font-size:10px;letter-spacing:.1em;color:#fff">rec</span>
+</div>
+<!-- animated word-by-word caption -->
+<div id="typpo-hero-cap" style="position:absolute;left:14px;right:14px;bottom:66px;display:flex;flex-wrap:wrap;gap:6px 7px;justify-content:center;z-index:3">
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">you</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">just</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">talk.</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">typpo</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">designs</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">the</span>
+<span data-w style="padding:4px 10px;border-radius:9px;background:rgba(8,8,8,.82);font-weight:900;font-size:clamp(15px,4.8vw,20px);letter-spacing:-.01em;color:#fff">rest.</span>
+</div>
+<div style="position:absolute;left:16px;right:16px;bottom:38px;height:4px;border-radius:99px;background:rgba(255,255,255,.16);z-index:3">
+<div style="height:100%;border-radius:99px;background:var(--tp-accent,#EE7F7B);animation:tpProg 3.2s ease-in-out infinite"></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ========== HOOK ========== -->
+<section style="max-width:1180px;margin:0 auto;padding:clamp(30px,5vw,54px) clamp(18px,5vw,40px)">
+<div data-reveal="" style="border:1px solid #EDEAE3;border-radius:22px;background:#F6F4F0;padding:clamp(28px,4vw,44px);text-align:center">
+<p style="margin:0;font-family:'Major Mono Display',monospace;font-size:clamp(20px,3.5vw,34px);line-height:1.35;letter-spacing:.01em;color:#1A1A18">no design skills? <span style="color:var(--tp-accent,#EE7F7B)">no problem.</span><br>no time to type? <span style="color:var(--tp-accent,#EE7F7B)">no problem.</span></p>
+<p style="margin:16px auto 0;max-width:520px;color:#56554E;font-size:16px;line-height:1.6;font-weight:500">if you can say it, you can make it. typpo does the design, the timing, and the captions.</p>
+</div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section id="how" style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,90px) clamp(18px,5vw,40px)">
+<div data-reveal="" style="text-align:center;margin-bottom:clamp(32px,5vw,52px)">
+<span style="font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D65F5B">how it works</span>
+<h2 style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(28px,4.6vw,46px);letter-spacing:.01em;margin:14px 0 0;color:#1A1A18">three taps to a video.</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px">
+
+<div data-reveal="" style="border:1px solid #EDEAE3;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 16px 40px -24px rgba(28,24,20,.22);display:flex;flex-direction:column">
+<div style="position:relative;height:clamp(230px,30vw,290px);overflow:hidden;background:#0a0a0b">
+<!-- REPLACE: step 1 view — template picker / gallery (9:16, top clipped) -->
+<media-slot id="tp-step1" fit="cover" position="50% 100%" radius="0" placeholder="drop your ‘pick a look’ clip" style="position:absolute;top:0;left:15%;width:70%;height:100%"></media-slot>
+<div style="position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;background:rgba(10,10,11,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">
+<span style="font-family:'Major Mono Display',monospace;font-size:13px;color:#EE7F7B;letter-spacing:.14em">01</span>
+<span style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff">pick a look</span>
+</div>
+</div>
+<div style="padding:22px 24px 26px">
+<h3 style="margin:0 0 8px;font-weight:800;font-size:20px;color:#1A1A18">pick a look.</h3>
+<p style="margin:0;color:#56554E;font-size:15px;line-height:1.6;font-weight:500">start from a typpo template or your own figma design — the whole vibe is set before you write a word.</p>
+</div>
+</div>
+
+<div data-reveal="80" style="border:1px solid #EDEAE3;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 16px 40px -24px rgba(28,24,20,.22);display:flex;flex-direction:column">
+<div style="position:relative;height:clamp(230px,30vw,290px);overflow:hidden;background:#0a0a0b">
+<!-- REPLACE: step 2 view — script / transcript entry (9:16, top clipped) -->
+<media-slot id="tp-step2" fit="cover" position="50% 0%" radius="0" placeholder="drop your ‘enter your script’ clip" style="position:absolute;inset:0;width:100%;height:100%"></media-slot>
+<div style="position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;background:rgba(10,10,11,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">
+<span style="font-family:'Major Mono Display',monospace;font-size:13px;color:#EE7F7B;letter-spacing:.14em">02</span>
+<span style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff">enter your script</span>
+</div>
+</div>
+<div style="padding:22px 24px 26px">
+<h3 style="margin:0 0 8px;font-weight:800;font-size:20px;color:#1A1A18">enter your script.</h3>
+<p style="margin:0;color:#56554E;font-size:15px;line-height:1.6;font-weight:500">type it or say it out loud. typpo transcribes every word and pins it to the exact beat you spoke it.</p>
+</div>
+</div>
+
+<div data-reveal="160" style="border:1px solid #EDEAE3;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 16px 40px -24px rgba(28,24,20,.22);display:flex;flex-direction:column">
+<div style="position:relative;height:clamp(230px,30vw,290px);overflow:hidden;background:#0a0a0b">
+<!-- REPLACE: step 3 view — finished captioned clip / share (9:16, top clipped) -->
+<media-slot id="tp-step3" fit="contain" position="50% 50%" radius="0" placeholder="drop your ‘render & share’ clip" style="position:absolute;inset:0;width:100%;height:100%"></media-slot>
+<div style="position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;background:rgba(10,10,11,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">
+<span style="font-family:'Major Mono Display',monospace;font-size:13px;color:#047857;letter-spacing:.14em">03</span>
+<span style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff">render &amp; share</span>
+</div>
+</div>
+<div style="padding:22px 24px 26px">
+<h3 style="margin:0 0 8px;font-weight:800;font-size:20px;color:#1A1A18">render &amp; share.</h3>
+<p style="margin:0;color:#56554E;font-size:15px;line-height:1.6;font-weight:500">a designed, captioned 9:16 video pops out. post to social or send it as a message in seconds.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ========== SHOW THE OUTPUT / GALLERY ========== -->
+<section style="max-width:1180px;margin:0 auto;padding:clamp(30px,5vw,60px) 0 clamp(48px,7vw,80px)">
+<div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:18px;padding:0 clamp(18px,5vw,40px);margin-bottom:clamp(24px,4vw,40px)">
+<div style="margin-right:auto">
+<span style="font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D65F5B">one voice, every look</span>
+<h2 style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(28px,4.6vw,46px);letter-spacing:.01em;margin:14px 0 0;color:#1A1A18">pick a style. keep your words.</h2>
+</div>
+<div style="display:flex;gap:10px">
+<button type="button" aria-label="previous clips" onClick="{{ galLeft }}" style="width:46px;height:46px;border-radius:99px;border:1px solid #E4E1DB;background:#fff;color:#1A1A18;cursor:pointer;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -12px rgba(28,24,20,.4)">‹</button>
+<button type="button" aria-label="next clips" onClick="{{ galRight }}" style="width:46px;height:46px;border-radius:99px;border:1px solid #E4E1DB;background:#fff;color:#1A1A18;cursor:pointer;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -12px rgba(28,24,20,.4)">›</button>
+</div>
+</div>
+
+<div id="tp-gallery" style="display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px clamp(18px,5vw,40px) 20px;scrollbar-width:none">
+
+<!-- clip: minimalist -->
+<figure style="flex:0 0 auto;scroll-snap-align:start;margin:0;width:210px">
+<div style="width:210px;aspect-ratio:9/16;border-radius:26px;padding:7px;background:linear-gradient(160deg,#26262a,#0f0f11);box-shadow:0 28px 54px -26px rgba(28,24,20,.42),0 0 0 1px #E4E1DB;animation:tpFloatSlow 8s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#0a0a0b">
+<!-- REPLACE: 9:16 sample clip (minimalist) -->
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center">
+<span style="font-weight:900;font-size:19px;line-height:1.2;color:#fff">say it <span style="color:#EE7F7B">once.</span></span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top:14px;padding-left:4px"><strong style="font-size:14px;font-weight:800;color:#1A1A18">minimalist</strong><br><span style="font-size:12.5px;color:#8B8B80;font-weight:500">clean and simple</span></figcaption>
+</figure>
+
+<!-- clip: neon vibes -->
+<figure style="flex:0 0 auto;scroll-snap-align:start;margin:0;width:210px">
+<div style="width:210px;aspect-ratio:9/16;border-radius:26px;padding:7px;background:linear-gradient(160deg,#26262a,#0f0f11);box-shadow:0 28px 54px -26px rgba(28,24,20,.42),0 0 0 1px #E4E1DB;animation:tpFloat 9s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:radial-gradient(90% 70% at 50% 40%,#1a0f2e,#08060f)">
+<!-- REPLACE: 9:16 sample clip (neon vibes) -->
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center">
+<span style="font-weight:900;font-size:20px;line-height:1.15;color:#ACE9ED;text-shadow:0 0 18px rgba(172,233,237,.9),0 0 4px #ACE9ED">glow<br><span style="color:#DA70D6;text-shadow:0 0 18px rgba(218,112,214,.9)">up.</span></span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top:14px;padding-left:4px"><strong style="font-size:14px;font-weight:800;color:#1A1A18">neon vibes</strong><br><span style="font-size:12.5px;color:#8B8B80;font-weight:500">glowing colors on dark</span></figcaption>
+</figure>
+
+<!-- clip: gradient pop -->
+<figure style="flex:0 0 auto;scroll-snap-align:start;margin:0;width:210px">
+<div style="width:210px;aspect-ratio:9/16;border-radius:26px;padding:7px;background:linear-gradient(160deg,#26262a,#0f0f11);box-shadow:0 28px 54px -26px rgba(28,24,20,.42),0 0 0 1px #E4E1DB;animation:tpFloatSlow 8.5s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,#EE7F7B,#DA70D6 55%,#1ABCFE)">
+<!-- REPLACE: 9:16 sample clip (gradient pop) -->
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center">
+<span style="font-weight:900;font-size:22px;line-height:1.1;color:#0E0E10">bold<br>&amp; loud</span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top:14px;padding-left:4px"><strong style="font-size:14px;font-weight:800;color:#1A1A18">gradient pop</strong><br><span style="font-size:12.5px;color:#8B8B80;font-weight:500">bold colorful gradients</span></figcaption>
+</figure>
+
+<!-- clip: lifestyle -->
+<figure style="flex:0 0 auto;scroll-snap-align:start;margin:0;width:210px">
+<div style="width:210px;aspect-ratio:9/16;border-radius:26px;padding:7px;background:linear-gradient(160deg,#26262a,#0f0f11);box-shadow:0 28px 54px -26px rgba(28,24,20,.42),0 0 0 1px #E4E1DB;animation:tpFloat 9.5s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:radial-gradient(120% 80% at 35% 25%,#6b5334,#3a2a1a 45%,#120d08)">
+<!-- REPLACE: 9:16 sample clip (lifestyle / real footage) -->
+<div style="position:absolute;left:12px;right:12px;bottom:22px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center">
+<span style="padding:3px 7px;border-radius:6px;background:rgba(8,8,8,.82);font-weight:900;font-size:14px;color:#FED916">fresh</span>
+<span style="padding:3px 7px;border-radius:6px;background:rgba(8,8,8,.82);font-weight:900;font-size:14px;color:#fff">every</span>
+<span style="padding:3px 7px;border-radius:6px;background:rgba(8,8,8,.82);font-weight:900;font-size:14px;color:#fff">morning</span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top:14px;padding-left:4px"><strong style="font-size:14px;font-weight:800;color:#1A1A18">lifestyle</strong><br><span style="font-size:12.5px;color:#8B8B80;font-weight:500">tv-style captions on video</span></figcaption>
+</figure>
+
+<!-- clip: big type -->
+<figure style="flex:0 0 auto;scroll-snap-align:start;margin:0;width:210px">
+<div style="width:210px;aspect-ratio:9/16;border-radius:26px;padding:7px;background:linear-gradient(160deg,#26262a,#0f0f11);box-shadow:0 28px 54px -26px rgba(28,24,20,.42),0 0 0 1px #E4E1DB;animation:tpFloatSlow 8s ease-in-out infinite">
+<div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#EE7F7B">
+<!-- REPLACE: 9:16 sample clip (big type) -->
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px">
+<span style="font-family:'Major Mono Display',monospace;font-size:30px;letter-spacing:.02em;color:#0E0E10;text-align:center;line-height:1">now.</span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top:14px;padding-left:4px"><strong style="font-size:14px;font-weight:800;color:#1A1A18">big type</strong><br><span style="font-size:12.5px;color:#8B8B80;font-weight:500">one word, full bleed</span></figcaption>
+</figure>
+
+</div>
+</section>
+
+<!-- ========== FIGMA BAND (for creators) ========== -->
+<section id="figma" style="position:relative;background:#F6F4F0;border-top:1px solid #EDEAE3;border-bottom:1px solid #EDEAE3;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;top:-20%;right:-6%;width:min(560px,80vw);height:min(560px,80vw);background:radial-gradient(circle,rgba(162,89,255,.16),transparent 62%);filter:blur(30px);pointer-events:none"></div>
+<div style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(52px,8vw,100px) clamp(18px,5vw,40px)">
+<div style="display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,64px);align-items:center">
+
+<div data-reveal="" style="flex:1 1 360px;min-width:290px">
+<div style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:99px;border:1px solid #E4E1DB;background:#fff;margin-bottom:22px">
+<svg width="14" height="21" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+<span style="font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E6D64">for designers &amp; brands</span>
+</div>
+<h2 style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.04;letter-spacing:.01em;margin:0 0 20px;color:#1A1A18">design once.<br><span style="color:var(--tp-accent,#EE7F7B)">reuse forever.</span></h2>
+<p style="max-width:480px;color:#56554E;font-size:clamp(15px,1.8vw,18px);line-height:1.65;font-weight:500;margin:0 0 26px">build the look of your video once in figma — type, motion, backgrounds, overlays, and a text safe zone. export it with the free <strong style="color:#1A1A18;font-weight:700">typpo template export</strong> plugin, then hand any new script or voice to typpo. every render comes back on-brand, beat for beat.</p>
+<ul style="list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:12px">
+<li style="display:flex;align-items:flex-start;gap:11px;color:#33322D;font-size:15px;font-weight:600"><span style="flex:0 0 auto;margin-top:1px;color:#047857">✓</span> reads your layouts, backgrounds &amp; overlays</li>
+<li style="display:flex;align-items:flex-start;gap:11px;color:#33322D;font-size:15px;font-weight:600"><span style="flex:0 0 auto;margin-top:1px;color:#047857">✓</span> carries your animations across every clip</li>
+<li style="display:flex;align-items:flex-start;gap:11px;color:#33322D;font-size:15px;font-weight:600"><span style="flex:0 0 auto;margin-top:1px;color:#047857">✓</span> honors a text safe zone so captions always fit</li>
+</ul>
+<a href="https://www.figma.com/community/plugin/1654183953415393934" style="display:inline-flex;align-items:center;gap:11px;padding:14px 24px;border-radius:99px;background:#1A1A18;color:#fff;text-decoration:none;font-weight:800;font-size:15px;box-shadow:0 16px 34px -16px rgba(28,24,20,.6)">
+<svg width="16" height="24" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+get it on the figma community</a>
+</div>
+
+<!-- handoff visual: Figma artboard -> Typpo output -->
+<div data-reveal="120" style="flex:1 1 340px;min-width:280px;display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,20px)">
+<!-- figma artboard -->
+<div style="position:relative;flex:1 1 auto;max-width:230px;border-radius:16px;border:1px solid #E4E1DB;background:#fff;overflow:hidden;box-shadow:0 28px 54px -28px rgba(28,24,20,.42)">
+<div style="display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid #EDEAE3;background:#FAF9F6">
+<svg width="11" height="16" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+<span style="font-size:11px;font-weight:700;color:#6E6D64">brand-template</span>
+</div>
+<div style="position:relative;aspect-ratio:9/13;margin:12px;border-radius:10px;background:linear-gradient(150deg,#2a2038,#141018);border:1px dashed rgba(238,127,123,.55);overflow:hidden">
+<span style="position:absolute;top:7px;left:8px;font-size:8.5px;font-weight:700;color:rgba(238,127,123,.95);letter-spacing:.06em">SAFE ZONE</span>
+<div style="position:absolute;left:12px;right:12px;bottom:16px;display:flex;flex-direction:column;gap:5px">
+<div style="height:9px;width:70%;border-radius:3px;background:rgba(255,255,255,.85)"></div>
+<div style="height:9px;width:45%;border-radius:3px;background:var(--tp-accent,#EE7F7B)"></div>
+</div>
+</div>
+</div>
+<!-- arrow -->
+<div aria-hidden="true" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;color:#EE7F7B">
+<svg width="34" height="18" viewBox="0 0 34 18" fill="none" stroke="#EE7F7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h28"/><path d="m24 3 7 6-7 6"/></svg>
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8B8B80">typpo</span>
+</div>
+<!-- typpo output phone -->
+<div style="position:relative;flex:1 1 auto;max-width:150px;border-radius:22px;padding:6px;background:linear-gradient(160deg,#2b2b30,#101012);box-shadow:0 28px 54px -28px rgba(28,24,20,.42),0 0 0 1px #E4E1DB">
+<div style="position:relative;aspect-ratio:9/16;border-radius:17px;overflow:hidden;background:linear-gradient(150deg,#2a2038,#141018)">
+<div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:44px;height:13px;border-radius:99px;background:#000"></div>
+<div style="position:absolute;left:10px;right:10px;bottom:20px;display:flex;flex-wrap:wrap;gap:3px;justify-content:center">
+<span style="padding:2px 6px;border-radius:5px;background:rgba(8,8,8,.82);font-weight:900;font-size:11px;color:#fff">your</span>
+<span style="padding:2px 6px;border-radius:5px;background:rgba(8,8,8,.82);font-weight:900;font-size:11px;color:var(--tp-accent,#EE7F7B)">script</span>
+<span style="padding:2px 6px;border-radius:5px;background:rgba(8,8,8,.82);font-weight:900;font-size:11px;color:#fff">here</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ========== WHY TYPPO ========== -->
+<section style="max-width:1180px;margin:0 auto;padding:clamp(52px,8vw,100px) clamp(18px,5vw,40px)">
+<div data-reveal="" style="max-width:640px;margin-bottom:clamp(32px,5vw,52px)">
+<span style="font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D65F5B">why typpo</span>
+<h2 style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(28px,4.6vw,46px);letter-spacing:.01em;margin:14px 0 16px;color:#1A1A18">a new kind of design tool.</h2>
+<p style="margin:0;color:#56554E;font-size:17px;line-height:1.6;font-weight:500">people don't talk to brands. people talk to people. typpo keeps your voice in the video — and does the design at the speed of speech.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+
+<div data-reveal="" style="border:1px solid #EDEAE3;border-radius:20px;background:#fff;padding:28px;box-shadow:0 16px 40px -26px rgba(28,24,20,.2)">
+<div style="font-family:'Major Mono Display',monospace;font-size:15px;color:#EE7F7B;letter-spacing:.1em;margin-bottom:16px">✦</div>
+<h3 style="margin:0 0 8px;font-weight:800;font-size:18px;color:#1A1A18">powered by voice</h3>
+<p style="margin:0;color:#56554E;font-size:14.5px;line-height:1.6;font-weight:500">the first design tool you drive by talking. no timeline scrubbing, no keyframes.</p>
+</div>
+
+<div data-reveal="60" style="border:1px solid #EDEAE3;border-radius:20px;background:#fff;padding:28px;box-shadow:0 16px 40px -26px rgba(28,24,20,.2)">
+<div style="font-family:'Major Mono Display',monospace;font-size:15px;color:#EE7F7B;letter-spacing:.1em;margin-bottom:16px">⚡</div>
+<h3 style="margin:0 0 8px;font-weight:800;font-size:18px;color:#1A1A18">fastest motion tool ever</h3>
+<p style="margin:0;color:#56554E;font-size:14.5px;line-height:1.6;font-weight:500">idea to finished, animated clip in the time it takes to say it out loud.</p>
+</div>
+
+<div data-reveal="120" style="border:1px solid #EDEAE3;border-radius:20px;background:#fff;padding:28px;box-shadow:0 16px 40px -26px rgba(28,24,20,.2)">
+<div style="font-family:'Major Mono Display',monospace;font-size:15px;color:#EE7F7B;letter-spacing:.1em;margin-bottom:16px">◈</div>
+<h3 style="margin:0 0 8px;font-weight:800;font-size:18px;color:#1A1A18">always on-brand</h3>
+<p style="margin:0;color:#56554E;font-size:14.5px;line-height:1.6;font-weight:500">figma templates keep type, color, and motion consistent across every video you make.</p>
+</div>
+
+<div data-reveal="180" style="border:1px solid #EDEAE3;border-radius:20px;background:#fff;padding:28px;box-shadow:0 16px 40px -26px rgba(28,24,20,.2)">
+<div style="font-family:'Major Mono Display',monospace;font-size:15px;color:#EE7F7B;letter-spacing:.1em;margin-bottom:16px">↗</div>
+<h3 style="margin:0 0 8px;font-weight:800;font-size:18px;color:#1A1A18">share anywhere</h3>
+<p style="margin:0;color:#56554E;font-size:14.5px;line-height:1.6;font-weight:500">vertical 9:16 out of the box — post to social or drop it straight into a chat.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ========== SOCIAL PROOF ========== -->
+<section style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,40px) clamp(52px,8vw,90px)">
+<div data-reveal="" style="border:1px solid #EDEAE3;border-radius:24px;background:#F6F4F0;padding:clamp(28px,4vw,44px)">
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:clamp(26px,4vw,40px)">
+<div style="display:flex;align-items:center;gap:16px">
+<div style="font-family:'Major Mono Display',monospace;font-size:clamp(38px,6vw,56px);color:#1A1A18;line-height:1">4.8</div>
+<div>
+<div style="color:#EE7F7B;font-size:18px;letter-spacing:.12em">★★★★★</div>
+<div style="color:#8B8B80;font-size:13px;font-weight:600;margin-top:3px">on the app store</div>
+</div>
+</div>
+<div style="display:flex;gap:clamp(20px,4vw,44px)">
+<div><div style="font-family:'Major Mono Display',monospace;font-size:clamp(24px,3.4vw,32px);color:#1A1A18">120k+</div><div style="color:#8B8B80;font-size:12.5px;font-weight:600;margin-top:4px">clips created</div></div>
+<div><div style="font-family:'Major Mono Display',monospace;font-size:clamp(24px,3.4vw,32px);color:#1A1A18">10s</div><div style="color:#8B8B80;font-size:12.5px;font-weight:600;margin-top:4px">avg. make time</div></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+
+<blockquote style="margin:0;border:1px solid #EDEAE3;border-radius:16px;background:#fff;padding:22px">
+<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#33322D;font-weight:500">“i talked for eight seconds and got a video i'd have spent an hour editing. this is unfair.”</p>
+<div style="display:flex;align-items:center;gap:11px">
+<div style="width:34px;height:34px;border-radius:99px;background:linear-gradient(135deg,#EE7F7B,#DA70D6)"></div>
+<div><div style="font-size:13px;font-weight:800;color:#1A1A18">maya r.</div><div style="font-size:12px;color:#8B8B80;font-weight:600">content creator</div></div>
+</div>
+</blockquote>
+
+<blockquote style="margin:0;border:1px solid #EDEAE3;border-radius:16px;background:#fff;padding:22px">
+<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#33322D;font-weight:500">“we built one figma template and now the whole team ships on-brand clips. game changer.”</p>
+<div style="display:flex;align-items:center;gap:11px">
+<div style="width:34px;height:34px;border-radius:99px;background:linear-gradient(135deg,#1ABCFE,#0ACF83)"></div>
+<div><div style="font-size:13px;font-weight:800;color:#1A1A18">devin k.</div><div style="font-size:12px;color:#8B8B80;font-weight:600">brand designer</div></div>
+</div>
+</blockquote>
+
+<blockquote style="margin:0;border:1px solid #EDEAE3;border-radius:16px;background:#fff;padding:22px">
+<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#33322D;font-weight:500">“captions land on every word perfectly. i stopped typing subtitles forever.”</p>
+<div style="display:flex;align-items:center;gap:11px">
+<div style="width:34px;height:34px;border-radius:99px;background:linear-gradient(135deg,#FED916,#EE7F7B)"></div>
+<div><div style="font-size:13px;font-weight:800;color:#1A1A18">theo l.</div><div style="font-size:12px;color:#8B8B80;font-weight:600">indie founder</div></div>
+</div>
+</blockquote>
+
+</div>
+</div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section id="download" style="position:relative;overflow:hidden;background:#FBFAF8;border-top:1px solid #EDEAE3">
+<div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(720px,95vw);height:min(720px,95vw);background:radial-gradient(circle,rgba(238,127,123,.22),transparent 62%);filter:blur(46px);pointer-events:none;animation:tpGlow 7s ease-in-out infinite"></div>
+<div data-reveal="" style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(64px,10vw,130px) clamp(18px,5vw,40px);text-align:center">
+<h2 style="font-family:'Major Mono Display',monospace;font-weight:400;font-size:clamp(38px,8vw,86px);line-height:1;letter-spacing:.02em;margin:0 0 22px;color:#1A1A18">talk. tap.<br><span style="color:var(--tp-accent,#EE7F7B)">share.</span></h2>
+<p style="max-width:460px;margin:0 auto 34px;color:#56554E;font-size:clamp(16px,2vw,19px);line-height:1.6;font-weight:500">your next video is one sentence away. typpo records it.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center">
+<a href="https://apps.apple.com/us/app/typpo/id1667857726" aria-label="Download on the App Store" style="display:inline-flex;align-items:center;gap:11px;padding:0 18px;height:56px;border-radius:9px;background:#000;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.24);box-shadow:0 18px 40px -18px rgba(0,0,0,.55)">
+<svg width="24" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.9c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.1-2.02-3.77-2.05-1.6-.16-3.13.94-3.94.94-.82 0-2.06-.92-3.4-.9-1.74.03-3.36 1.02-4.26 2.58-1.82 3.16-.46 7.83 1.29 10.4.86 1.26 1.88 2.67 3.21 2.62 1.3-.05 1.79-.83 3.35-.83 1.55 0 2 .83 3.36.81 1.39-.03 2.27-1.28 3.11-2.55.98-1.46 1.39-2.88 1.41-2.95-.03-.01-2.7-1.04-2.73-4.11zM14.6 5.28c.71-.86 1.19-2.05 1.06-3.24-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.97-1.08 3.13 1.14.09 2.3-.58 3.01-1.43z"/></svg>
+<span style="display:flex;flex-direction:column;justify-content:center;line-height:1"><span style="font-size:11px;font-weight:400">Download on the</span><span style="font-size:21px;font-weight:600;letter-spacing:-.01em;font-family:-apple-system,'Montserrat',sans-serif">App Store</span></span>
+</a>
+<a href="https://www.figma.com/community/plugin/1654183953415393934" style="display:inline-flex;align-items:center;gap:10px;padding:0 24px;height:56px;border-radius:9px;background:#fff;border:1px solid #E4E1DB;color:#1A1A18;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 10px 24px -16px rgba(28,24,20,.4)">
+<svg width="16" height="24" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+get the figma plugin</a>
+</div>
+</div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer style="border-top:1px solid #EDEAE3;background:#F6F4F0">
+<div style="max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(18px,5vw,40px) clamp(30px,4vw,44px);display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+<div style="max-width:280px">
+<div style="font-family:'Major Mono Display',monospace;font-size:22px;letter-spacing:.14em;color:#1A1A18;margin-bottom:14px">typpo</div>
+<p style="margin:0 0 16px;color:#6E6D64;font-size:13.5px;line-height:1.6;font-weight:500">the design tool powered by your voice. typpo records it.</p>
+<div style="display:flex;gap:10px">
+<a href="#top" aria-label="x / twitter" style="width:38px;height:38px;border-radius:11px;border:1px solid #E4E1DB;background:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="#6E6D64" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05l12.03 15.64z"/></svg>
+</a>
+<a href="#top" aria-label="instagram" style="width:38px;height:38px;border-radius:11px;border:1px solid #E4E1DB;background:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6E6D64" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#6E6D64" stroke="none"/></svg>
+</a>
+<a href="https://www.figma.com/community/plugin/1654183953415393934" aria-label="figma" style="width:38px;height:38px;border-radius:11px;border:1px solid #E4E1DB;background:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none">
+<svg width="13" height="19" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+</a>
+</div>
+</div>
+<nav aria-label="footer" style="display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,60px)">
+<div style="display:flex;flex-direction:column;gap:11px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#A4A496;margin-bottom:3px">product</span>
+<a href="#how" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">how it works</a>
+<a href="#download" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">download</a>
+<a href="#figma" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">figma plugin</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#A4A496;margin-bottom:3px">company</span>
+<a href="#top" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">about</a>
+<a href="#top" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">privacy</a>
+<a href="#top" style="color:#6E6D64;text-decoration:none;font-size:14px;font-weight:600">terms</a>
+</div>
+</nav>
+</div>
+<div style="max-width:1180px;margin:0 auto;padding:20px clamp(18px,5vw,40px);border-top:1px solid #E7E3DC;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
+<span style="color:#A4A496;font-size:12.5px;font-weight:600">© 2026 typpo by beatpitch inc. · santa monica, ca</span>
+<span style="font-family:'Major Mono Display',monospace;font-size:12px;letter-spacing:.12em;color:#EE7F7B">typpo records it.</span>
+</div>
+</footer>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#0E0E10"/>
+<circle cx="256" cy="220" r="150" fill="#EE7F7B" opacity="0.22"/>
+<text x="256" y="250" font-family="monospace" font-size="72" letter-spacing="8" fill="#ffffff" text-anchor="middle">typpo</text>
+<text x="256" y="315" font-family="monospace" font-size="24" letter-spacing="4" fill="#EE7F7B" text-anchor="middle">records it.</text>
+</svg>
+</template></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EE7F7B&quot;,&quot;options&quot;:[&quot;#EE7F7B&quot;,&quot;#0ACF83&quot;,&quot;#DA70D6&quot;,&quot;#1ABCFE&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;captionSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:340,&quot;min&quot;:160,&quot;max&quot;:600,&quot;step&quot;:20,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;glow&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:18,&quot;min&quot;:0,&quot;max&quot;:40,&quot;step&quot;:2,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const p = this.props || {};
+    const rootEl = document.documentElement;
+    rootEl.style.setProperty('--tp-accent', p.accent || '#EE7F7B');
+    const speed = Number(p.captionSpeed) || 340;
+    const glow = (p.glow == null ? 18 : Number(p.glow));
+    const glowEl = document.getElementById('tp-hero-glow');
+    if (glowEl) glowEl.style.opacity = String(Math.max(0, Math.min(0.4, glow / 100 + 0.02)));
+
+    const rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- word-by-word caption loop ----
+    const cap = document.getElementById('typpo-hero-cap');
+    if (cap) {
+      const words = [].slice.call(cap.querySelectorAll('[data-w]'));
+      if (rm) {
+        words.forEach(w => { w.style.opacity = '1'; w.style.transform = 'none'; });
+      } else {
+        words.forEach(w => {
+          w.style.transition = 'opacity .26s ease, transform .26s ease, color .18s ease';
+          w.style.opacity = '0';
+          w.style.transform = 'translateY(10px)';
+        });
+        let i = 0;
+        const step = () => {
+          words.forEach((w, idx) => {
+            if (idx < i) { w.style.opacity = '1'; w.style.transform = 'none'; w.style.color = '#fff'; }
+            else if (idx === i) { w.style.opacity = '1'; w.style.transform = 'none'; w.style.color = 'var(--tp-accent,#EE7F7B)'; }
+            else { w.style.opacity = '0'; w.style.transform = 'translateY(10px)'; }
+          });
+          i++;
+          if (i > words.length) {
+            this._t = setTimeout(() => {
+              words.forEach(w => { w.style.opacity = '0'; w.style.transform = 'translateY(10px)'; });
+              i = 0;
+              this._t = setTimeout(step, 440);
+            }, 1500);
+            return;
+          }
+          this._t = setTimeout(step, speed);
+        };
+        this._t = setTimeout(step, 520);
+      }
+    }
+
+    // ---- on-scroll reveals ----
+    if (!rm && 'IntersectionObserver' in window) {
+      const els = [].slice.call(document.querySelectorAll('[data-reveal]'));
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity .8s cubic-bezier(.16,.7,.3,1), transform .8s cubic-bezier(.16,.7,.3,1)';
+      });
+      const io = new IntersectionObserver((ents) => {
+        ents.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target;
+            const d = Number(el.getAttribute('data-reveal')) || 0;
+            el.style.transitionDelay = d + 'ms';
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(el => io.observe(el));
+    }
+  }
+
+  componentWillUnmount() { if (this._t) clearTimeout(this._t); }
+
+  renderVals() {
+    const scroll = (dir) => () => {
+      const el = document.getElementById('tp-gallery');
+      if (el) el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.85, 340), behavior: 'smooth' });
+    };
+    return { galLeft: scroll(-1), galRight: scroll(1) };
+  }
+}
+</script>
+</body>
+</html>

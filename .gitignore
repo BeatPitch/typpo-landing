@@ -1,0 +1,8 @@
+# dev-only: masters, sources, mocks, backups — not for deploy
+_dev/
+.DS_Store
+
+# dev convenience symlink + superseded page
+hero-c.html
+typpo-landing.standalone.html
+.claude/
