@@ -6,3 +6,7 @@ _dev/
 hero-c.html
 typpo-landing.standalone.html
 .claude/
+
+# vercel CLI link metadata
+.vercel/
+.vercel
