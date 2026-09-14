@@ -41,7 +41,18 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     """Adds HTTP Range support (single range) — Safari requires byte-range
     responses for some media (notably HEVC) before it will start playback."""
 
+    def _clean_url_fallback(self):
+        """Serve /faqs from faqs.html, matching Vercel's cleanUrls in prod."""
+        raw, sep, query = self.path.partition("?")
+        if raw.endswith("/") or "." in raw.rsplit("/", 1)[-1]:
+            return
+        if os.path.exists(self.translate_path(raw)):
+            return
+        if os.path.isfile(self.translate_path(raw + ".html")):
+            self.path = raw + ".html" + sep + query
+
     def send_head(self):
+        self._clean_url_fallback()
         path = self.translate_path(self.path)
         range_header = self.headers.get("Range")
         if not (range_header and range_header.startswith("bytes=") and os.path.isfile(path)):

@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/feedback", "destination": "/contact", "permanent": true }
+  ]
+}
