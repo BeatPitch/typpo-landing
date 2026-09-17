@@ -78,7 +78,8 @@ main{max-width:820px;margin:0 auto;padding:clamp(36px,6vw,72px) clamp(18px,5vw,4
 /* ---------- prose ---------- */
 .prose{color:var(--body);font-size:16px;line-height:1.7;font-weight:500}
 .prose p{margin:0 0 18px}
-.prose a{color:var(--salmon-text);text-decoration:underline;text-underline-offset:3px}
+.prose a,.faq-list a{color:var(--salmon-text);text-decoration:underline;text-underline-offset:3px}
+.prose a:hover,.faq-list a:hover{color:var(--ink)}
 .prose strong{color:var(--ink);font-weight:700}
 
 /* numbered terms list */
